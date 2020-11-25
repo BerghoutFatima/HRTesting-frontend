@@ -5,22 +5,26 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
-import Navbar from "./components/navbar.component";
-import Menu from "./components/menu.component";
+import Navbar from "./components/dashboard/navbar.component";
+import Menu from "./components/dashboard/menu.component";
+import Dashboard from "./components/dashboard/dashboard.component";
+import Choices from "./components/dashboard/choices.component";
+import CreerFormulaire from "./components/creer_formulaire.component";
+import Questionnaire from "./components/questionnaire.component";
 
 function App() {
   return (<Router>
     
     <div className="App">
-    
-      
-    <navbar/>
           <Switch>
             <Route exact path='/' component={Login} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
-            <Route path="/navbar" component={Navbar} />
             <Route path="/menu" component={Menu} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/choices" component={Choices} />
+            <Route path="/newform" component={CreerFormulaire} />
+            <Route path="/questionnaire" component={Questionnaire} />
           </Switch>
         </div>
       

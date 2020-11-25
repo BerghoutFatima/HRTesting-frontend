@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
                   <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav ml-auto">
                       <li className="nav-item">
-                        <Link className="nav-link" to={"/sign-in"}>Username</Link>
+                        <Link className="nav-link"  to={"/sign-in"}>Username</Link>
                       </li>
                     </ul>
                   </div>

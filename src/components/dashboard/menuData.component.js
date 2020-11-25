@@ -5,23 +5,25 @@ import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
 import AlbumSharpIcon from '@material-ui/icons/AlbumSharp';
 
 export const  MenuData = [
-   
-
     {
         title:"Accueil",
-        link:"/home",
+        link:"/choices"
     },
     {
         title:"Calendrier des entretiens",
-        link:"/home",
+        link:"/choices"
     },
     {
         title:"Passer les évaluations",
-        link:"/home",
+        link:"/choices"
     },
     {
         title:"Consulter les résultats",
-        link:"/home",
+        link:"/choices"
+    },
+    {
+        title:"Gérer les bilans et rapports",
+        link:"/choices"
     }
 ] 
     

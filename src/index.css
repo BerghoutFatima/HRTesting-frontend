@@ -1,11 +1,4 @@
-/*body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}*/
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -31,16 +24,17 @@ body, html, .App, #root, .outer {
 }
 
 .navbar-light {
-  background-color: #ffffff;
+  background-color: #075e79;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
 }
+
 
 .bgcolor {
   background-color: #ffffff;
 }
 
 .outer {
-  
+  margin-top: 1%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -56,6 +50,65 @@ body, html, .App, #root, .outer {
   border-radius: 15px;
   transition: all .3s;
 }
+.inner2 {
+  width: 450px;
+  position: relative;
+  background: rgb(214, 207, 207);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 20px 15px 20px 15px;
+  border-radius: 10px;
+  transition: all .3s;
+}   
+.tab{
+  padding:0 0 0 40px
+}
+#box{
+  width:1000px;
+  height:450px;
+  margin: 20px 20px;
+  top: 50px;
+  left: 50px;
+  position: relative;
+  /*background-color:#14ce52;*/
+}
+
+.choice{
+  width:250px;
+  height:80px;
+  float: left;
+  margin: 20px 50px;
+  top: 20px;
+  color: white;
+  position: relative;
+  border-radius: 10px;
+  /*font-weight: bold;*/
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  background-color: #075e79;
+}
+.buttonCancel{
+  width:120px;
+  height:45px;
+  margin: 10px 5px;
+  top: 20px;
+  float: right;
+  position: relative;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  background-color: #6c6f75;
+}
+.buttonConfirm{
+  width:120px;
+  height:45px;
+  margin: 10px 5px;
+  top: 20px;
+  float: right;
+  position: relative;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  background-color: #075e79;
+}
 
 .outer .form-control:focus {
   border-color: #0d3f81;
@@ -63,6 +116,8 @@ body, html, .App, #root, .outer {
 }
 
 .sideBar{
+  position: fixed;
+  margin-top: 4%;
   width:250px;
   height:100%;
   background-color:#2F4050;
@@ -81,7 +136,7 @@ body, html, .App, #root, .outer {
 }
 .sideBarOne{
   width:100%;
-  height:60px;
+  height:90px;
   list-style-type: none;
   margin: 0%;
   display: flex;
@@ -89,9 +144,17 @@ body, html, .App, #root, .outer {
   color: white;
   justify-content: center;
   align-items: center;
-  background-color: #39caee;
+  background-color: #17364e;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.sideBarTwo{
+    position: fixed;
+    margin-top: 4%;
+    margin-left:250px ;
+    width:100%;
+    height:100%;
+    background-color : white;
+  }
 
 .sidebarList .row{
   width:100%;
@@ -148,6 +211,17 @@ body, html, .App, #root, .outer {
   padding-top: 10px;
   color: #082c5c;
 }
+.boxleft{
+  width: 200px;
+  margin: 10px 5px;
+  float: left;
+  position: relative;
+  background:rgb(214, 207, 207);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 20px 15px 20px 15px;
+  border-radius: 10px;
+  transition: all .3s;
+}
 
 .custom-control-label {
   font-weight: 400;
@@ -164,4 +238,7 @@ body, html, .App, #root, .outer {
 
 .forgot-password a {
   color: #167bff;
+}
+.direction{
+  direction: ltr;
 }

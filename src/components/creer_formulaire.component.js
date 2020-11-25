@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import Dashboard from "./dashboard/dashboard.component";
 
 
-export default class Login extends Component {
+export default class CreerFormulaire extends Component {
     render() {
         
         return (
             <div>
                 <div className="log" >
-                <img src="/cnss.png" className="logo" alt=""/>
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" className="logo" alt=""/>
                 </div>
+                
             <div className="form">
             <div className="outer ">
             <div className="inner">
