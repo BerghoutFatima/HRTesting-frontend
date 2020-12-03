@@ -13,8 +13,7 @@ class  Choices extends Component {
           if(key == 1) {values=[["aaa","ee"],["bbb","hhh"]]}
           if(key == 2) {values=[["Créer un formulaire d'évaluation","/newform"],["Créer un questionnaire d'évaluation","/questionnaire"],["Modifier un formulaire d'évaluation",""],["Modifier un questionnaire d'évaluation",""], ["Attribuer un formulaire à un collaborateur",""], ["Attribuer un questionnaire à un collaborateur",""]]}
           if(key == 3) {values=[["aaaa",""],["bbbb",""]]}
-          //console.log(url+"/newform");
-          //console.log("rrrr = "+values[0][1] );
+         
           
           
           return(
@@ -22,7 +21,7 @@ class  Choices extends Component {
             <div id="box">
                     
                     {
-                    values.map(item => <button  className="choice"   onClick={()=> {window.location.pathname = item[1];}}>
+                    values.map(item => <button  className="choice btn btn- my-3 border border-info "   onClick={()=> {window.location.pathname = item[1];}}>
                     {item[0]}
                 </button>
                 

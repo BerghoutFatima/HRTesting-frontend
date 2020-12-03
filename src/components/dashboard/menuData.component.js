@@ -1,29 +1,35 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Navbar from "./navbar.component";
-import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
-import AlbumSharpIcon from '@material-ui/icons/AlbumSharp';
+import React from "react";
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import DateRangeIcon from '@material-ui/icons/DateRange';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 export const  MenuData = [
     {
         title:"Accueil",
-        link:"/choices"
+        link:"/choices",
+        icon:<HomeOutlinedIcon/>
     },
     {
         title:"Calendrier des entretiens",
-        link:"/choices"
+        link:"/choices",
+        icon:<DateRangeIcon/>
     },
     {
         title:"Passer les évaluations",
-        link:"/choices"
+        link:"/choices",
+        icon:<CreateOutlinedIcon/>
     },
     {
         title:"Consulter les résultats",
-        link:"/choices"
+        link:"/choices",
+        icon:<DescriptionOutlinedIcon/>
     },
     {
-        title:"Gérer les bilans et rapports",
-        link:"/choices"
+        title:"Gérer les bilans et les rapports",
+        link:"/choices",
+        icon:<SettingsOutlinedIcon/>
     }
 ] 
     

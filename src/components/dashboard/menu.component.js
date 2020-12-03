@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { MenuData } from "./menuData.component";
 import Choices from "./choices.component";
 import axios from 'axios';
+import Icon from '@material-ui/core/Icon';
 //import panel from 'react-bootstrap/lib/Panel';
+
 
 
 class Menu extends Component{
@@ -28,8 +30,8 @@ class Menu extends Component{
    render(){
         return (
             
-            <div className="sideBar">
-                <div className="sideBarOne"><h5>Dashboard</h5></div>
+            <div className="sideBar ">
+                <div className="sideBarOne"><h5>D A S H B O A R D</h5></div>
                 <ul className="sidebarList">
                 {
                 /*this.state.choiceList.data.map(choice => <panel bsStyle="info" key={choice.values} className="centeralign">
@@ -47,16 +49,21 @@ class Menu extends Component{
           </panel>*/
                     MenuData.map((val,key) => {
                       //return <li key={key} className="row" onClick={() => this.setState({selectedChoice: MenuData.id})}>
-                                return <li key={key} className="row" onClick={()=> {window.location.pathname = "dashboard/"+key;
+                                return <div>
+                                  
+                                  <li key={key} className="row" onClick={()=> {window.location.pathname = "dashboard/"+key;
                                 }}>
                                   
                                    
                                     
                                     <div id="title">
-                                        {val.title} 
+                                        {val.icon}
+                                        <span>{val.title}</span>
+                                         
                                     </div>
 
-                                </li>;
+                                </li>
+                                </div>
 
                                
                             }

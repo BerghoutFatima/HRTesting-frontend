@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from "./navbar.component";
 import Menu from "./menu.component";
 import Choices from "./choices.component";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
  class Dashboard extends Component {
     constructor(props) {
@@ -16,18 +17,14 @@ import Choices from "./choices.component";
         return (
             <div>
                 <div>
-                   <Navbar></Navbar> 
+                   <Navbar/> 
                 </div>
-
                 <div>
                    <Menu></Menu>
-                   
                    <div  className="sideBarTwo" >
-                    
                          <Choices/>
                    </div>
                 </div>
-            
             </div>
           );  
     }

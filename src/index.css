@@ -13,7 +13,7 @@ body {
   display: flex;
   font-weight: 400;
   font-family: sans-serif;
-  background: linear-gradient(to right, #31A3AB, #3e6291); 
+  /*background: linear-gradient(to right, #31A3AB, #3e6291); */
   
 }
 
@@ -24,24 +24,31 @@ body, html, .App, #root, .outer {
 }
 
 .navbar-light {
-  background-color: #075e79;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 300;
+  font-weight: 700;
+  position: fixed;
+  background-color: white;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  height: 60px;
 }
 
 
 .bgcolor {
-  background-color: #ffffff;
+  background-color: #751b1b;
 }
 
 .outer {
   margin-top: 1%;
   display: flex;
+  margin: 0 auto;
   justify-content: center;
   flex-direction: column;
   text-align: left;
 }
 
 .inner {
+  color: white;
   width: 450px;
   margin: auto;
   background: #25286A;
@@ -51,11 +58,13 @@ body, html, .App, #root, .outer {
   transition: all .3s;
 }
 .inner2 {
-  width: 450px;
-  position: relative;
-  background: rgb(214, 207, 207);
+  
+  width: 600px;
+  margin: 60 auto;
+  margin-left: 0;
+  background: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 20px 15px 20px 15px;
+  padding: 5px 15px 20px 15px;
   border-radius: 10px;
   transition: all .3s;
 }   
@@ -66,8 +75,8 @@ body, html, .App, #root, .outer {
   width:1000px;
   height:450px;
   margin: 20px 20px;
-  top: 50px;
-  left: 50px;
+  top: 100px;
+  left: 140px;
   position: relative;
   /*background-color:#14ce52;*/
 }
@@ -81,9 +90,9 @@ body, html, .App, #root, .outer {
   color: white;
   position: relative;
   border-radius: 10px;
-  /*font-weight: bold;*/
+  font-weight: bold;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  background-color: #075e79;
+  
 }
 .buttonCancel{
   width:120px;
@@ -111,18 +120,20 @@ body, html, .App, #root, .outer {
 }
 
 .outer .form-control:focus {
-  border-color: #0d3f81;
+  border-color: #17a2b8;
   box-shadow: none;
 }
 
 .sideBar{
   position: fixed;
-  margin-top: 4%;
+  margin-top: 67px;
   width:250px;
   height:100%;
   background-color:#2F4050;
 }
-
+span{
+  margin-left: 8px;
+}
 .sidebarList {
   width:100%;
   height:auto;
@@ -149,7 +160,7 @@ body, html, .App, #root, .outer {
 }
 .sideBarTwo{
     position: fixed;
-    margin-top: 4%;
+    margin-top: auto;
     margin-left:250px ;
     width:100%;
     height:100%;
@@ -159,11 +170,13 @@ body, html, .App, #root, .outer {
 .sidebarList .row{
   width:100%;
   height:60px;
+  font-size: 15px;
   list-style-type: none;
   margin: 0%;
   display: flex;
   flex-direction: row;
   color: white;
+  position: relative;
   justify-content: center;
   align-items: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -176,7 +189,8 @@ body, html, .App, #root, .outer {
 .row #title{
   flex: auto;
   text-align: left;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin: 10px 10px;
 }
 
 .outer h3 {
@@ -188,12 +202,17 @@ body, html, .App, #root, .outer {
 
 .logo{
   display: block;
-  margin-left: auto;
+  margin-left: 40%;
   margin-right: auto;
-  margin-top: 20%;
+  margin-top: 40%;
   margin-bottom: 20%;
 }
 
+.logoo{
+  display: block;
+  width:90px;
+  height:50px;
+}
 .log {
 	float:left;
 	width:500px;
@@ -201,6 +220,9 @@ body, html, .App, #root, .outer {
   }
 .form{
   float:right;
+  margin-top: 80px;
+  margin-left: 20;
+  margin-right: 100px;
 	width:700px;
   height:577px;
 }

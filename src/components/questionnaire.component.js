@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./dashboard/navbar.component";
 import Menu from "./dashboard/menu.component";
-import Choices from "./dashboard/choices.component";
 
 export default class Questionnaire extends Component {
     render() {
@@ -53,7 +52,7 @@ export default class Questionnaire extends Component {
                 </div>
 
                 <div >
-                <button type="submit" className="buttonCancel" onClick={()=> {window.location.pathname = ""}}>
+                <button type="submit" className="buttonCancel" onClick={()=> {window.location.pathname = "/dashboard/2";}}>
                     Annuler
                 </button>
                 <button type="submit" className="buttonConfirm" onClick={()=> {window.location.pathname = ""}}>

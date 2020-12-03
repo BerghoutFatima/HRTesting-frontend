@@ -8,7 +8,7 @@ export default class Login extends Component {
         return (
             <div>
                 <div className="log" >
-                <img src="/cnss.png" className="logo" alt=""/>
+                <img src="/cnssLogo.png" className="logo" alt=""/>
                 </div>
             <div className="form">
             <div className="outer ">
