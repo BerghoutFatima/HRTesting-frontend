@@ -81,6 +81,16 @@ body, html, .App, #root, .outer {
   /*background-color:#14ce52;*/
 }
 
+.bag{
+  width:500px;
+  height:80px;
+  float: left;
+  margin: 30px 250px;
+  top: 110px;
+  position: relative;
+  
+}
+
 .choice{
   width:250px;
   height:80px;
@@ -116,7 +126,7 @@ body, html, .App, #root, .outer {
   color: white;
   border-radius: 5px;
   padding: 5px 5px 5px 5px;
-  background-color: #075e79;
+  background-color: #17a2b8;
 }
 
 .outer .form-control:focus {
@@ -202,10 +212,11 @@ span{
 
 .logo{
   display: block;
-  margin-left: 40%;
+  margin-left: 35%;
   margin-right: auto;
   margin-top: 40%;
   margin-bottom: 20%;
+  
 }
 
 .logoo{
@@ -215,8 +226,9 @@ span{
 }
 .log {
 	float:left;
-	width:500px;
-	height:577px;
+	width:460px;
+  height:577px;
+  /*background:rgb(147, 196, 32);*/
   }
 .form{
   float:right;

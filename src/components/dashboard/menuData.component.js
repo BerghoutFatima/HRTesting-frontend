@@ -17,12 +17,12 @@ export const  MenuData = [
         icon:<DateRangeIcon/>
     },
     {
-        title:"Passer les évaluations",
+        title:"Gérer les évaluations",
         link:"/choices",
         icon:<CreateOutlinedIcon/>
     },
     {
-        title:"Consulter les résultats",
+        title:"Gérer les résultats",
         link:"/choices",
         icon:<DescriptionOutlinedIcon/>
     },

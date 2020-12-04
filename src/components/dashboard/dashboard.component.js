@@ -5,6 +5,7 @@ import Menu from "./menu.component";
 import Choices from "./choices.component";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
  class Dashboard extends Component {
     constructor(props) {
         super(props)
@@ -22,6 +23,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                 <div>
                    <Menu></Menu>
                    <div  className="sideBarTwo" >
+                   
+                
                          <Choices/>
                    </div>
                 </div>

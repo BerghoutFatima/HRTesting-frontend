@@ -2,12 +2,13 @@ import React, { Component, useState } from "react";
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from "@material-ui/core";
 import Navbar from "./dashboard/navbar.component";
 import Menu from "./dashboard/menu.component";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -86,25 +87,29 @@ function CreerFormulaire() {
                                 onChange={event => handleChangeInput(index, event)}
                                 />
                                 <IconButton 
-                                onClick = { () => handleRemoveFields()}>
-                                    <RemoveIcon/>
+                                onClick = { () => handleAddFields()}>
+                                    <AddCircleIcon/>
                                 </IconButton>
                                 <IconButton 
-                                onClick = { () => handleAddFields()}>
-                                    <AddIcon/>
+                                onClick = { () => handleRemoveFields()}>
+                                    <CancelRoundedIcon/>
                                 </IconButton>
-                                
                             </div>
                             </div>
                             ))
                     }
                     <br></br>
-                    <Button className={classes.button}
+                    
+                    <Button className={classes.button} style={{color:"white", backgroundColor:"#17a2b8"}}
                     variant="contained"
-                    color=""
                     type="submit"
                     onClick={handleSubmit}>
                     Enregistrer</Button>
+                    <Button className={classes.button} style={{color:"white",backgroundColor:"#6c6f75"}}
+                    variant="contained"
+                    type="cancel"
+                    onClick={()=> {}}>
+                    Annuler</Button>
 
                 </form>
             </Container>

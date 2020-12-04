@@ -1,7 +1,7 @@
 import { Avatar } from "@material-ui/core";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 
  class Navbar extends Component {
    
@@ -23,8 +23,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
     </ul>
     <form className="form-inline my-2 my-lg-0">
       
-      <input className="form-control mr-sm-2" type="search" placeholder="Mot clé" aria-label="Search"/>
-      <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Chercher</button>
+      <input className="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search"/>
+      <button className="btn btn-outline-dark my-2 my-sm-0" type="submit"><SearchSharpIcon/></button>
       <ul className="navbar-nav mr-auto">
       
       <li className="nav-item dropdown">

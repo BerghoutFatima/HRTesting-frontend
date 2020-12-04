@@ -8,7 +8,7 @@ export default class SignUp extends Component {
                 <img src="/cnssLogo.png" className="logo" alt=""/>
                 </div>
       
-            <div className="form">
+            <div className="form" style={{marginTop:0}}>
                <div className="outer ">
                <div className="inner">
             <form>
