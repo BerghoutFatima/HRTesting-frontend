@@ -1,6 +1,5 @@
 import { Avatar } from "@material-ui/core";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 
  class Navbar extends Component {
@@ -18,11 +17,8 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
-      
-      
     </ul>
     <form className="form-inline my-2 my-lg-0">
-      
       <input className="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search"/>
       <button className="btn btn-outline-dark my-2 my-sm-0" type="submit"><SearchSharpIcon/></button>
       <ul className="navbar-nav mr-auto">
@@ -39,29 +35,6 @@ import SearchSharpIcon from '@material-ui/icons/SearchSharp';
   </div>
 </nav>
 </div>
-
-        /*<Router>
-            <div className="">
-              <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-                <div className="container">
-                  <Link className="navbar-brand" to={"/sign-in"}>
-                <img src="/cnssLogo.png" className="logoo" alt=""/>
-                </Link>
-                  <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul className="navbar-nav ml-auto">
-                      <li className="nav-item">
-                        <Link className="nav-link"  to={"/sign-in"}>Username</Link>
-                      </li>
-                    </ul>
-                    
-                  </div>
-                  
-                </div>
-              </nav>
-              
-            </div>
-            
-            </Router>*/
             
           );
         

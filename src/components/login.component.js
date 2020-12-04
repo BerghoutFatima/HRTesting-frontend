@@ -4,28 +4,6 @@ import { Backpack } from 'react-kawaii'
 export default class Login extends Component {
     
     render() {
-        /*const mouth = StyleRounded(this.logoRef.current.querySelector("#mouth"));
-        const openMouth = tween({
-            from:{scaleY:0},
-            to:{scaleY :1},
-            duration: 200
-        });
-
-        const closeMouth = tween({
-            from:{scaleY:1},
-            to:{scaleY :0},
-            duration: 300,
-            flip:1
-        });
-        const mouthAction = action(({ complete })=>{
-    openMouth.start({
-        update: mouth.set,
-        complete:()=>{
-            complete();
-            setInterval(()=>closeMouth.start({ update:mouth.set}), 3500);
-    }
-});
-    });*/
 
         return (
             <div>

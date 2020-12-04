@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from "./navbar.component";
 import Menu from "./menu.component";
 import Choices from "./choices.component";
@@ -23,8 +22,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                 <div>
                    <Menu></Menu>
                    <div  className="sideBarTwo" >
-                   
-                
                          <Choices/>
                    </div>
                 </div>
