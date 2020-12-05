@@ -13,8 +13,8 @@ export default class Login extends Component {
             <div className="form" style={{marginTop:0}}>
             <div className="outer">
             <div className="inner">
-            <form >
 
+            <form >
                 <h3>Log in</h3>
 
                 <div className="form-group">
