@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,6 +8,7 @@ import Navbar from "./dashboard/navbar.component";
 import Menu from "./dashboard/menu.component";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
+import axios from 'axios'
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -21,28 +22,76 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-function CreerQuestionnaire() {
+
+
+function CreerQuestionnaire(){
+    const classes = useStyles()
     
-        const classes = useStyles()
+
+    const quiz = {
+        id:'',
+        name:'',
+        questions:[],
+        reponses:[],
+        user:{
+            id:'',
+            username:'',
+            password:'',
+            email:''
+        }
+
+    } 
 
     const [inputFields, setInputField] = useState([
-            {question: '', reponse: ''},
+        
+            { nom:'',question: '', reponse: '',user:{}},
         ]);
 
     const handleChangeInput = (index, event)=> {
-        console.log(index, event.target.name)
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
         setInputField(values);
+        console.log(values)
+    }
+
+
+    const changeHandler = (event)  => {
+        const values = [...inputFields];
+        values[0][event.target.name] = event.target.value;
+        setInputField(values);
+        event.preventDefault();
+        return values;
     }
 
     const handleSubmit = (e) => {
+        changeHandler(e);
         e.preventDefault();
-        console.log("InputFields", inputFields);
+        quiz.name=changeHandler(e)[0].nom;
+        for(let i=0;i<inputFields.length;i++)
+        {
+            quiz.questions.push(inputFields[i].question)
+            quiz.reponses.push("")
+
+        }
+        
+        window.location.pathname = "quizs"
+        console.log('&&&')
+        console.log(quiz);
+        console.log('$$$')
+        
+
+        axios
+        .post('addQuiz', quiz)
+        .then(response => {
+            console.log(response)
+        }) 
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     const handleAddFields = () => {
-        setInputField([...inputFields,{question:'',reponse:''}])
+        setInputField([...inputFields,{nom:'',question:'',reponse:''}])
     }
 
     const handleRemoveFields = (index) => {
@@ -50,8 +99,9 @@ function CreerQuestionnaire() {
         values.splice(index,1);
         setInputField(values);
     }
-        return (
-            <div>
+        
+    return (
+        <div>
             <div>
                 <Navbar></Navbar> 
             </div>
@@ -61,27 +111,34 @@ function CreerQuestionnaire() {
             <div className="form">
             <div className="">
             <div className="inner2">
-            <form >
-            <Container>
+            
+            <Container >
                 <h2>
                     Nouveau questionnaire
                 </h2>
                 <br></br>
                 <div>
-                <TextField className="outer2" id="outlined-basic" label="Nom du questionnaire" variant="outlined" placeholder="Nom du questionnaire"/>
+                <TextField  className="outer2" id="outlined-basic"  variant="outlined" placeholder="Nom du questionnaire" name="nom" value={inputFields.nom} 
+                onChange={changeHandler}/>
                 </div>
+                <br></br>
                 <br></br>
                 <form className={classes.root} onSubmit={handleSubmit}>
                     {
                         
+                        
                         inputFields.map((inputField, index) =>(
                             <div>
+                                
                             <div key={index}>
-                                <TextField
+                            
+                                <TextField className="form-control"
                                 name="question"
                                 label="Question"
                                 value={inputField.question}
-                                onChange={event => handleChangeInput(index, event)}
+                                onChange={event => handleChangeInput(index, event)
+                                    //changeHandler(event)
+                                }
                                 />
                                 <IconButton 
                                 onClick = { () => handleAddFields()}>
@@ -94,6 +151,7 @@ function CreerQuestionnaire() {
                             </div>
                             </div>
                             ))
+                        
                     }
                     <br></br>
                     
@@ -110,14 +168,17 @@ function CreerQuestionnaire() {
 
                 </form>
             </Container>
-            </form>
+           
             </div>
             </div>
             </div>
             </div>
             </div>
         );
-}export default CreerQuestionnaire
+        
+    
+}export default CreerQuestionnaire;
+
 
 
 

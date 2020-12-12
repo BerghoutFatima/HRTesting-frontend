@@ -1,11 +1,48 @@
-import { StyleRounded } from "@material-ui/icons";
 import React, { Component } from "react";
-import { Backpack } from 'react-kawaii'
-export default class Login extends Component {
+import 'react-notifications-component/dist/theme.css'
+import axios from 'axios'
+
+export default class Login extends Component{
+    
+    constructor(props){
+        super(props)
+        this.state = {
+            email:'',
+            password:''
+        }
+    } 
+
+    changeHandler = e  => {
+        this.setState({ [e.target.name]: e.target.value})
+    }
+
+    submitHandler = e => {
+        e.preventDefault()
+        console.log("eeee")
+        console.log(this.state.email)
+        console.log("aaaa")
+        axios.get('http://localhost:8080/trouverUserParLogin?email='+this.state.email+'&password='+this.state.password)
+        .then(response => {
+            console.log(response)
+            if(response.data.length === 1 && response.data[0].email === this.state.email && response.data[0].password === this.state.password)
+            {
+                window.location.pathname = "/dashboard"
+            }
+
+            
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        
+    }
+
     
     render() {
+        const { id, email, password} = this.state
 
         return (
+
             <div>
                 <div className="log" >
                 <img src="/cnssLogo.png" className="logo" alt=""/>
@@ -14,17 +51,17 @@ export default class Login extends Component {
             <div className="outer">
             <div className="inner">
 
-            <form >
+            <form onSubmit={this.submitHandler} >
                 <h3>Log in</h3>
 
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input type="email" className="form-control" placeholder="Enter email" name ="email" value={email} onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" className="form-control" placeholder="Enter password" name ="password" value={password} onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
@@ -33,10 +70,16 @@ export default class Login extends Component {
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                     </div>
                 </div>
+                <div>
+            <button type="submit" className="btn btn-dark btn-lg btn-block" 
+            //onClick={()=>{window.location.pathname = "/dashboard" }}
+            >
+                Log in
+            </button>
+            </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={()=> {window.location.pathname = "/dashboard"}}>
-                    Log in
-                </button>
+
+                
 
                 <p className="forgot-password text-left">
                     Forgot <a href="#">password?</a>
@@ -57,3 +100,7 @@ export default class Login extends Component {
 }
 
 
+/*
+
+
+*/

@@ -3,6 +3,8 @@ import Navbar from "./navbar.component";
 import Menu from "./menu.component";
 import Choices from "./choices.component";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 
  class Dashboard extends Component {

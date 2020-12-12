@@ -8,6 +8,7 @@ import Navbar from "./dashboard/navbar.component";
 import Menu from "./dashboard/menu.component";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
+import axios from 'axios'
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -21,27 +22,74 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
+
+
 function CreerFormulaire() {
     const classes = useStyles()
+    
+
+    const form = {
+        id:'',
+        name:'',
+        questions:[],
+        reponses:[],
+        user:{
+            id:'',
+            username:'',
+            password:'',
+            email:''
+        }
+
+    } 
 
     const [inputFields, setInputField] = useState([
-            {question: '', reponse: ''},
+        
+            { nom:'',question: '', reponse: '',user:{}},
         ]);
 
     const handleChangeInput = (index, event)=> {
-        console.log(index, event.target.name)
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
         setInputField(values);
+        console.log(values)
+    }
+
+
+    const changeHandler = (event)  => {
+        const values = [...inputFields];
+        values[0][event.target.name] = event.target.value;
+        setInputField(values);
+        event.preventDefault();
+        return values;
     }
 
     const handleSubmit = (e) => {
+        changeHandler(e);
         e.preventDefault();
-        console.log("InputFields", inputFields);
+        form.name=changeHandler(e)[0].nom;
+        for(let i=0;i<inputFields.length;i++)
+        {
+            form.questions.push(inputFields[i].question)
+            form.reponses.push("")
+        }
+        window.location.pathname = "forms"
+        console.log('&&&')
+        console.log(form);
+        console.log('$$$')
+        
+
+        axios
+        .post('addForm', form)
+        .then(response => {
+            console.log(response)
+        }) 
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     const handleAddFields = () => {
-        setInputField([...inputFields,{question:'',reponse:''}])
+        setInputField([...inputFields,{nom:'',question:'',reponse:''}])
     }
 
     const handleRemoveFields = (index) => {
@@ -61,29 +109,34 @@ function CreerFormulaire() {
             <div className="form">
             <div className="">
             <div className="inner2">
-            <form >
-            <Container>
+            
+            <Container >
                 <h2>
                     Nouveau formulaire
                 </h2>
                 <br></br>
                 <div>
-                <TextField className="outer2" id="outlined-basic" label="Nom du formulaire" variant="outlined" placeholder="Nom du formulaire"/>
+                <TextField  className="outer2" id="outlined-basic"  variant="outlined" placeholder="Nom du formulaire" name="nom" value={inputFields.nom} 
+                onChange={changeHandler}/>
                 </div>
                 <br></br>
                 <br></br>
                 <form className={classes.root} onSubmit={handleSubmit}>
                     {
                         
+                        
                         inputFields.map((inputField, index) =>(
-                            //console.log("index = "+index),
                             <div>
+                                
                             <div key={index}>
-                                <TextField
+                            
+                                <TextField className="form-control"
                                 name="question"
                                 label="Question"
                                 value={inputField.question}
-                                onChange={event => handleChangeInput(index, event)}
+                                onChange={event => handleChangeInput(index, event)
+                                    //changeHandler(event)
+                                }
                                 />
                                 <IconButton 
                                 onClick = { () => handleAddFields()}>
@@ -96,6 +149,7 @@ function CreerFormulaire() {
                             </div>
                             </div>
                             ))
+                        
                     }
                     <br></br>
                     
@@ -112,7 +166,7 @@ function CreerFormulaire() {
 
                 </form>
             </Container>
-            </form>
+           
             </div>
             </div>
             </div>
@@ -122,5 +176,4 @@ function CreerFormulaire() {
         
     
 }export default CreerFormulaire;
-
 
