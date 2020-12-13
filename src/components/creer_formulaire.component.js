@@ -64,6 +64,9 @@ function CreerFormulaire() {
     }
 
     const handleSubmit = (e) => {
+        var res = window.location.pathname.split("/");
+
+        //window.location.pathname=res[1]
         changeHandler(e);
         e.preventDefault();
         form.name=changeHandler(e)[0].nom;
@@ -72,7 +75,7 @@ function CreerFormulaire() {
             form.questions.push(inputFields[i].question)
             form.reponses.push("")
         }
-        window.location.pathname = "forms"
+        
         console.log('&&&')
         console.log(form);
         console.log('$$$')
@@ -86,6 +89,7 @@ function CreerFormulaire() {
         .catch(error => {
             console.log(error)
         })
+        window.location.pathname = "forms/"
     }
 
     const handleAddFields = () => {

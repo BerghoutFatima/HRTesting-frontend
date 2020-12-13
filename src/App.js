@@ -5,7 +5,11 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 import Menu from "./components/dashboard/menu.component";
+import MenuCollab from "./components/dashboard/menucollab.component";
+import PasserForm from "./components/dashboard/passerform.component";
+import PasserQuiz from "./components/dashboard/passerquiz.component";
 import Dashboard from "./components/dashboard/dashboard.component";
+import DashboardCollab from "./components/dashboard/dashboardcollab.component";
 import Choices from "./components/dashboard/choices.component";
 import CreerFormulaire from "./components/creer_formulaire.component";
 import CreerQuestionnaire from "./components/questionnaire.component";
@@ -26,6 +30,8 @@ function App() {
             <Route path="/sign-up" component={SignUp} />
             <Route path="/menu" component={Menu} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/menucollab" component={MenuCollab} />
+            <Route path="/dashboardcollab" component={DashboardCollab} />
             <Route path="/choices" component={Choices} />
             <Route path="/forms" component={Forms} />
             <Route path="/quizs" component={Quizs} />
@@ -33,6 +39,8 @@ function App() {
             <Route path="/editquiz" component={Editquiz} />
             <Route path="/formcollab" component={Formcollab} />
             <Route path="/quizcollab" component={Quizcollab} />
+            <Route path="/passerform" component={PasserForm} />
+            <Route path="/passerquiz" component={PasserQuiz} />
             <Route path="/newform" component={CreerFormulaire} />
             <Route path="/questionnaire" component={CreerQuestionnaire} />
           </Switch>

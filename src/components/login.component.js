@@ -23,11 +23,12 @@ export default class Login extends Component{
         console.log("aaaa")
         axios.get('http://localhost:8080/trouverUserParLogin?email='+this.state.email+'&password='+this.state.password)
         .then(response => {
-            console.log(response)
-            if(response.data.length === 1 && response.data[0].email === this.state.email && response.data[0].password === this.state.password)
+            console.log(response.data[0].username)
+            if(response.data.length === 1 && this.state.email === "amal@gmail.com" && this.state.password === "aaaaaa" && response.data[0].email === this.state.email && response.data[0].password === this.state.password )
             {
-                window.location.pathname = "/dashboard"
+                window.location.pathname = "/dashboard/"+response.data[0].username
             }
+            else window.location.pathname = "/dashboardcollab/"+response.data[0].username
 
             
         })

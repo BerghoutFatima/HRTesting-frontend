@@ -152,8 +152,9 @@ const useStyles = makeStyles({
                     variant="contained"
                     type="cancel"
                     //onClick={this.deletehandler()}
+                    onClick={()=> {window.location.pathname = "forms"}}
                     >
-                    Supprimer</Button>
+                    Annuler</Button>
         
                   </Container>
             </div> 

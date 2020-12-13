@@ -80,6 +80,10 @@ chercher = (e)  => {
 }*/
     
     render() {
+      //var res = window.location.pathname.split("/");
+      //var rslt = res[2].split("");
+      //console.log("ererere "+rslt[0])
+      
       const { id, name, questions,reponses} = this.state
         return (
           <div className="">
@@ -98,7 +102,7 @@ chercher = (e)  => {
       <ul className="navbar-nav mr-auto">
       
       <li className="nav-item dropdown">
-      <Avatar style={{marginLeft:40}} className="bg-dark" icon="user">B</Avatar>
+      <Avatar style={{marginLeft:40}} className="bg-dark" icon="user">A</Avatar>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
           <a className="dropdown-item" href="">Déconnexion</a>
           

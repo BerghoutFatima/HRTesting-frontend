@@ -33,4 +33,27 @@ export const  MenuData = [
     }
 ] 
     
+export const  MenuDataCollab = [
+    {
+        title:"Accueil",
+        link:"/choices",
+        icon:<HomeOutlinedIcon/>
+    },
+    {
+        title:"Calendrier des entretiens",
+        link:"/choices",
+        icon:<DateRangeIcon/>
+    },
+    {
+        title:"Passer les évaluations",
+        link:"/choices",
+        icon:<CreateOutlinedIcon/>
+    },
+    {
+        title:"Consulter les résultats",
+        link:"/choices",
+        icon:<DescriptionOutlinedIcon/>
+    }
+] 
+    
   

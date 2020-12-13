@@ -151,9 +151,9 @@ const useStyles = makeStyles({
                     <Button  style={{color:"white",backgroundColor:"#6c6f75"}}
                     variant="contained"
                     type="cancel"
-                    onClick={this.deletehandler()}
+                    onClick={()=> {window.location.pathname = "quizs"}}
                     >
-                    Supprimer</Button>
+                    Annuler</Button>
         
                   </Container>
             </div> 

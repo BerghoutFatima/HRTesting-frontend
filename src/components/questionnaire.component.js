@@ -163,7 +163,7 @@ function CreerQuestionnaire(){
                     <Button className={classes.button} style={{color:"white",backgroundColor:"#6c6f75"}}
                     variant="contained"
                     type="cancel"
-                    onClick={()=> {}}>
+                    onClick={()=> {window.location.pathname = "dashboard/2"}}>
                     Annuler</Button>
 
                 </form>
