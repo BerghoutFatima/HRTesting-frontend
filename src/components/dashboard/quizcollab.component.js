@@ -45,6 +45,7 @@ componentDidMount(){
 
    
 updatehandler = (quiz)=> {
+  this.findUserByUsername(quiz.user.username);
   //window.location.pathname = window.location.pathname+"form"
   var res = window.location.pathname.split("/");
   var key = res[2];
@@ -52,6 +53,24 @@ updatehandler = (quiz)=> {
     
     console.log("quiz")
     console.log(quiz)
+  })
+}
+
+findUserByUsername = (username)=> {
+  //window.location.pathname = window.location.pathname+"form"
+  var res = window.location.pathname.split("/");
+  var key = res[2];
+  axios.get('trouverUserByUsername?un='+username).then(response =>{
+  
+    let messgtosend = {
+      sendTo : '',
+      subject : 'H R T - cnss',
+      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un questionnaire d évaluation à remplir et à rendre avant le délais.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
+    }
+    messgtosend.sendTo = response.data[0].email
+    axios.post('v1/notification/textemail', messgtosend)
+    console.log("OK!")
+    
   })
 }
 

@@ -19,23 +19,9 @@ class Formcollab extends Component {
     super(props);
     this.state = { 
       users: [] ,
-      ////
       forms: []
-
-      ////
-      /*form: {
-        id:'',
-        name:'',
-        questions:[],
-        reponses:[],
-        user:{
-            id:'',
-            username:'',
-            password:'',
-            email:''
-        }
-      }*/
     }
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     
@@ -44,28 +30,45 @@ class Formcollab extends Component {
 componentDidMount(){
         
   UserService.getUsers().then((response) => {
-    //console.log("----")
+    
       this.setState({ users: response.data})
-      //console.log("((((")
+      
   });
-  ////
+ 
   FormService.getForms().then((response) => {
     this.setState({ forms: response.data})
     console.log("----oooo-----")
     console.log(response.data)
 });
-////
+
 }
 
-   
 updatehandler = (form)=> {
-  //window.location.pathname = window.location.pathname+"form"
+  this.findUserByUsername(form.user.username);
+ 
   var res = window.location.pathname.split("/");
   var key = res[2];
   axios.put('/updateForm/'+form.id,form).then(response =>{
     
-    console.log("form")
+    console.log("form is ")
     console.log(form)
+  })
+}
+findUserByUsername = (username)=> {
+  //window.location.pathname = window.location.pathname+"form"
+  var res = window.location.pathname.split("/");
+  var key = res[2];
+  axios.get('trouverUserByUsername?un='+username).then(response =>{
+  
+    let messgtosend = {
+      sendTo : '',
+      subject : 'H R T - cnss',
+      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un formulaire d évaluation à remplir et à rendre avant le délais.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
+    }
+    messgtosend.sendTo = response.data[0].email
+    axios.post('v1/notification/textemail', messgtosend)
+    console.log("OK!")
+    
   })
 }
 
