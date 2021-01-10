@@ -57,9 +57,8 @@ class  Forms extends Component {
                 </div>
                 <div>
                    <Menu></Menu>
-                   
                    <div  id="box" >
-                   <h1>Liste de formulaires</h1>
+                   <u><h2>Liste de formulaires</h2></u>
                    {this.state.forms.map(form => (
                    <Card id="boxs" className="border border-info " >
                    
@@ -67,6 +66,9 @@ class  Forms extends Component {
         <Typography variant="h6" component="h2">
         {form.name}
         </Typography>
+        <div className="left-side" >
+           <h6 style={{color:"#17364e"}}>{form.date_envoi}</h6>
+        </div>
         
       </CardContent>
       <CardActions className="right-side">

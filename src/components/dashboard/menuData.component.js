@@ -13,7 +13,7 @@ export const  MenuData = [
     },
     {
         title:"Calendrier des entretiens",
-        link:"/choices",
+        link:"/calendar",
         icon:<DateRangeIcon/>
     },
     {
@@ -27,7 +27,7 @@ export const  MenuData = [
         icon:<DescriptionOutlinedIcon/>
     },
     {
-        title:"Gérer les bilans et les rapports",
+        title:"Gérer les rapports",
         link:"/choices",
         icon:<SettingsOutlinedIcon/>
     }
@@ -41,7 +41,7 @@ export const  MenuDataCollab = [
     },
     {
         title:"Calendrier des entretiens",
-        link:"/choices",
+        link:"/calendar",
         icon:<DateRangeIcon/>
     },
     {

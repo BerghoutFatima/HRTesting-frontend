@@ -80,12 +80,35 @@ body, html, .App, #root, .outer {
   position: relative;
   /*background-color:#14ce52;*/
 }
+#boxi{
+  width:980px;
+  height:450px;
+  margin: 0px 20px;
+  top: 70px;
+  left: 250px;
+  position: relative;
+  /*background-color:#14ce52;*/
+}
 #boxs{
   width:180px;
-  height:120px;
+  height:140px;
   margin: 20px 20px;
   top: 20px;
   left: 140px;
+  float: left;
+  position: relative;
+  background-color:white;
+  position: relative;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+#boxis{
+  width:300px;
+  height:200px;
+  margin: 20px 10px;
+  top: 20px;
+  left: 10px;
   float: left;
   position: relative;
   background-color:white;
@@ -105,7 +128,7 @@ body, html, .App, #root, .outer {
 }
 #boxss{
   width:180px;
-  height:240px;
+  height:280px;
   margin: 20px 20px;
   top: 20px;
   left: 140px;
@@ -127,12 +150,24 @@ body, html, .App, #root, .outer {
   position: relative;
   
 }
-
+.choix{
+  margin-left: 1000px;
+  background-color:#14ce52;
+}
+#boxt{
+  width:950px;
+  height:450px;
+  margin: 0px 0px;
+  top: 100px;
+  left: 40px;
+  position: relative;
+  /*background-color:#14ce52;*/
+}
 .choice{
   width:250px;
   height:80px;
   float: left;
-  margin: 20px 50px;
+  margin: 20px 30px;
   top: 20px;
   color: white;
   position: relative;
@@ -141,6 +176,7 @@ body, html, .App, #root, .outer {
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   
 }
+
 .buttonCancel{
   width:120px;
   height:45px;
@@ -213,6 +249,23 @@ span{
     height:100%;
     background-color : white;
   }
+  .table
+  {
+      border-collapse: collapse;
+  }
+  td, th /* Mettre une bordure sur les td ET les th */
+  {
+      border: 1px solid black;
+  }
+.calendar{
+  margin-top: auto;
+  margin-left:300px ;
+  height:100%;
+  max-width: 900px;
+  top: 70px;
+  position: relative;
+  /*background-color : rgb(180, 42, 42);*/
+}
 
 .sidebarList .row{
   width:100%;
@@ -255,6 +308,14 @@ span{
   margin-bottom: 20%;
   
 }
+.logoDone{
+  display: block;
+  margin-left: 30%;
+  margin-right: auto;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  
+}
 
 .logoo{
   display: block;
@@ -274,6 +335,20 @@ span{
   margin-right: 100px;
 	width:700px;
   height:577px;
+  
+}
+.grille{
+  float:right;
+  margin-top: 80px;
+  margin-left: 10;
+  margin-right: 20px;
+	width:1000px;
+  height:577px;
+  /*background:rgb(147, 196, 32);*/
+}
+.savoirfaire{
+  background:#49b0c0;
+  width:10px;
 }
 
 .footer{

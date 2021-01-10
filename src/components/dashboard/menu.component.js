@@ -7,9 +7,8 @@ class Menu extends Component{
    
 
    render(){
-    var res = window.location.pathname.split("/");
+    //var res = window.location.pathname.split("/");
     
-    console.log("axax "+res)
         return (
             
             <div className="sideBar ">

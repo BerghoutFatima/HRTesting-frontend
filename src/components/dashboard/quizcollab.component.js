@@ -22,25 +22,17 @@ class Quizcollab extends Component {
       
       quizs: []
 
-      
     }
-    //this.handleChange = this.handleChange.bind(this);
-    //this.handleSubmit = this.handleSubmit.bind(this);
-    
 } 
 
 componentDidMount(){
         
   UserService.getUsers().then((response) => {
-    //console.log("----")
       this.setState({ users: response.data})
-      //console.log("((((")
   });
-  ////
   QuizService.getQuizs().then((response) => {
     this.setState({ quizs: response.data})
 });
-////
 }
 
    
@@ -65,7 +57,7 @@ findUserByUsername = (username)=> {
     let messgtosend = {
       sendTo : '',
       subject : 'H R T - cnss',
-      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un questionnaire d évaluation à remplir et à rendre avant le délais.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
+      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un questionnaire d évaluation à remplir et à rendre dans un délais d une semaine.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
     }
     messgtosend.sendTo = response.data[0].email
     axios.post('v1/notification/textemail', messgtosend)
@@ -75,9 +67,7 @@ findUserByUsername = (username)=> {
 }
 
 handleSubmit (event) {
-  console.log("ccc")
   console.log(event)
-  //alert("your form is: "+event.target);
   event.preventDefault();
   
 
@@ -85,7 +75,6 @@ handleSubmit (event) {
 
 handleChange = (event) => {
   this.setState({ value: event.target.value})
-  console.log("didi")
   console.log(event.target.value)
 }
 
@@ -93,7 +82,8 @@ handleChange = (event) => {
     render() {
       const { users } = this.state.users
       const { quizs } = this.state.quizs
-      //const [ userState, setUserState] = useState();
+      console.log("ezez")
+      console.log(quizs)
     return (
 
       <div>       
@@ -104,7 +94,7 @@ handleChange = (event) => {
          <Menu></Menu>
          
          <div  id="box" >
-         <h1>Liste des questionnaires</h1>
+         <u><h2>Liste de questionnaires</h2></u>
          {this.state.quizs.map(quiz => (
          <Card id="boxss" className="border border-info " >
          
@@ -114,10 +104,14 @@ handleChange = (event) => {
             </Typography>
 
          </CardContent>
+         
+           
          <div className="left-side" >
-           <label >Collaborateur:</label>
-           <br></br>
-           <h6 style={{color:"#17364e"}} className=" btn btn-" >{quiz.user.username}</h6>
+         <label ><li>Délai:</li></label>
+         <h6 style={{color:"red"}}>{quiz.date_envoi}</h6>
+           <label ><li>Collaborateur:</li></label>
+           <h6 style={{color:"#17364e"}}>{quiz.user.username}</h6>
+           
     <select 
     id="inputState" 
     onChange={(e) => {
@@ -131,7 +125,7 @@ handleChange = (event) => {
       {
         this.state.users.map(user => (
             //console.log(user)
-            <option  selected  
+            <option   
             onClick={event => {
               console.log("dddd")
               console.log(user)

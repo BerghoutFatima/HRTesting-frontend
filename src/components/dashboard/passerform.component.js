@@ -38,6 +38,7 @@ class  PasserForm extends Component {
         questions:[],
         reponses:[]
       }
+      //forms:[]
       };
         
     } 
@@ -56,6 +57,7 @@ class  PasserForm extends Component {
           if(response.data[i].user.username == res[2])
           {
             this.setState({ form: response.data[i]})
+
           }
 
         }
@@ -80,7 +82,7 @@ class  PasserForm extends Component {
       window.location.pathname = res[1]
       axios.get('detailsForm/'+key).then(response =>{
           this.setState({ form: response.data})
-      //window.location.pathname = res[1]+"/"+res[2]
+      window.location.pathname = "resultform/"+res[2]
       console.log("aq "+window.location.pathname)
       
     })
@@ -89,6 +91,8 @@ class  PasserForm extends Component {
         render (){
         
           const { form} = this.state
+          console.log("jiji")
+          console.log(this.state.form)
           var liste=this.state.form.questions;
           //console.log(form.questions[0])
           this.state.form.questions = liste;

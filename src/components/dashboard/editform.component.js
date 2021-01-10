@@ -3,20 +3,12 @@ import Navbar from "./navbar.component";
 import Menu from "./menu.component";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-notifications/lib/notifications.css';
-import FormService from "../../services/FormService";
 import { formatMs, makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { EditRounded, ThreeSixty } from "@material-ui/icons";
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
-import axios from 'axios'
+import axios from 'axios';
+import moment from 'moment'
 
 const useStyles = makeStyles({
     root: {
@@ -45,6 +37,7 @@ const useStyles = makeStyles({
           id:'',
         name:'',
         questions:[],
+        date_envoi:'',
         reponses:[]
       }
       };
@@ -85,13 +78,10 @@ const useStyles = makeStyles({
           handleSubmit = (e) => {
             var res = window.location.pathname.split("/");
             var key = res[2];
-            axios.get('http://localhost:8080/detailsForm/'+key).then(response =>{
+            console.log("ux "+key)
+            axios.get('detailsForm/'+key).then(response =>{
                 this.setState({ form: response.data})
                 window.location.pathname = "forms"
-               /* console.log('&&&')
-                console.log(this.state.form)
-                console.log('$$$')*/
-            //this.state.form.=this.handleChangeInput(e).name;
             console.log(this.state.form.name)
             
           })
@@ -117,8 +107,18 @@ const useStyles = makeStyles({
                    <div className="">
                    <div className="inner2">
                   <Container >
-                    <h3>Editer le formulaire {this.state.form.name}</h3>
-                    {
+                    <h3><u>Editer le formulaire: </u>{this.state.form.name}</h3>
+                    <br></br>
+                    <h5 className="left-side">Le délai: <h5 style={{color:"red"}}>{this.state.form.date_envoi}</h5></h5>
+                    <div>
+                <input  name="this.state.form.date_envoi"  type="date" 
+                 value={ moment(this.state.form.date_envoi).format("YYYY-MMM-DD") } 
+                 className="form-control"
+                 onChange={event => {
+                  this.state.form.date_envoi=event.target.value
+                   this.updatehandler(this.state.form)} }/>
+                </div>
+                {
                       this.state.form.questions.map( (x,index) => (
                       <TextField key={index} className="form-control"
                       label={x}

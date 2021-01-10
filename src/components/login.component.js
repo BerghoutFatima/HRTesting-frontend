@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import 'react-notifications-component/dist/theme.css'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
 
 export default class Login extends Component{
     
@@ -12,11 +13,28 @@ export default class Login extends Component{
         }
     } 
 
+    
     changeHandler = e  => {
         this.setState({ [e.target.name]: e.target.value})
     }
+/*
 
+
+export const ToastDemo = ({ content }) => {
+  const { addToast } = useToasts()
+  return (
+    <Button onClick={() => addToast(content, {
+      appearance: 'success',
+      autoDismiss: true,
+    })}>
+      Add Toast
+    </Button>
+  )
+}
+*/
     submitHandler = e => {
+        toast("Wow so easy !");
+        const notify = () => toast("Wow so easy !");
         e.preventDefault()
         console.log("eeee")
         console.log(this.state.email)
@@ -26,6 +44,14 @@ export default class Login extends Component{
             console.log(response.data[0].username)
             if(response.data.length === 1 && this.state.email === "fatima@gmail.com" && this.state.password === "aaaaaa" && response.data[0].email === this.state.email && response.data[0].password === this.state.password )
             {
+                /*toast('Created successfully!', {
+                    status: 'Thanks!',
+                    type: 'success',
+                    autoHide: false,
+                    delay: '7000'
+                  })
+                  <div><ToastContainer /></div>*/
+                  
                 window.location.pathname = "/dashboard/"+response.data[0].username
             }
             else window.location.pathname = "/dashboardcollab/"+response.data[0].username
@@ -53,29 +79,29 @@ export default class Login extends Component{
             <div className="inner">
 
             <form onSubmit={this.submitHandler} >
-                <h3>Log in</h3>
+                <h3>Connexion</h3>
 
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter email" name ="email" value={email} onChange={this.changeHandler}/>
+                    <input type="email" className="form-control" placeholder="Votre email" name ="email" value={email} onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" name ="password" value={password} onChange={this.changeHandler}/>
+                    <label>Mot de passe</label>
+                    <input type="password" className="form-control" placeholder="Votre mot de passe" name ="password" value={password} onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
                     <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                        <label className="custom-control-label" htmlFor="customCheck1">Souvenir de moi</label>
                     </div>
                 </div>
                 <div>
             <button type="submit" className="btn btn-dark btn-lg btn-block" 
             //onClick={()=>{window.location.pathname = "/dashboard" }}
             >
-                Log in
+                Se connecter
             </button>
             </div>
 
@@ -83,10 +109,10 @@ export default class Login extends Component{
                 
 
                 <p className="forgot-password text-left">
-                    Forgot <a href="#">password?</a>
+                <a href="#">Mot de passe oublié?</a>
                 </p>
                 <p className="forgot-password text-left">
-                    Don't have account yet! <a href="/sign-up">Sign up?</a>
+                    Pas encore inscris! <a href="/sign-up">S'inscrire?</a>
                 </p>
                 <h6 className="footer">Copyright @ 2020 CNSS</h6>
                 

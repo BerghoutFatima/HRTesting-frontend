@@ -51,26 +51,26 @@ class SignUp extends Component {
                <div className="outer ">
                <div className="inner">
             <form onSubmit={this.submitHandler} >
-                <h3>Register</h3>
+                <h3>S'inscrire</h3>
 
                 <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" className="form-control"  placeholder="Username" name = "username" value={username} onChange={this.changeHandler}/>
+                    <label>Nom d'utilisateur</label>
+                    <input type="text" className="form-control"  placeholder="Nom d'utilisateur" name = "username" value={username} onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control"  placeholder="Enter email" name ="email" value={email} onChange={this.changeHandler} />
+                    <input type="email" className="form-control"  placeholder="Entrer votre email" name ="email" value={email} onChange={this.changeHandler} />
                 </div>
 
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" name ="password" value={password} onChange={this.changeHandler}/>
+                    <label>Mot de passe</label>
+                    <input type="password" className="form-control" placeholder="Entrer un mot de passe" name ="password" value={password} onChange={this.changeHandler}/>
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
+                <button type="submit" className="btn btn-dark btn-lg btn-block">S'inscrire</button>
                 <p className="forgot-password text-left">
-                    Already registered! <a href="/sign-in">log in?</a>
+                    Déja inscris! <a href="/sign-in">Se connecter?</a>
                 </p>
                 <h6 className="footer">Copyright @ 2020 CNSS</h6>
             </form>

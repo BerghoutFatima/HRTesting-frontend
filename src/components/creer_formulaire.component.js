@@ -8,7 +8,9 @@ import Navbar from "./dashboard/navbar.component";
 import Menu from "./dashboard/menu.component";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
-import axios from 'axios'
+import axios from 'axios';
+import moment from 'moment'
+
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -32,6 +34,7 @@ function CreerFormulaire() {
         id:'',
         name:'',
         questions:[],
+        date_envoi:'',
         reponses:[],
         user:{
             id:'',
@@ -39,12 +42,11 @@ function CreerFormulaire() {
             password:'',
             email:''
         }
-
     } 
 
     const [inputFields, setInputField] = useState([
         
-            { nom:'',question: '', reponse: '',user:{}},
+            { nom:'',ladate:'', question: '', reponse: '',user:{}},
         ]);
 
     const handleChangeInput = (index, event)=> {
@@ -62,6 +64,13 @@ function CreerFormulaire() {
         event.preventDefault();
         return values;
     }
+    const changeDateHandler = (event)  => {
+        const values = [...inputFields];
+        values[0].ladate = event.target.value;
+        setInputField(values);
+        event.preventDefault();
+        return values;
+    }
 
     const handleSubmit = (e) => {
         var res = window.location.pathname.split("/");
@@ -70,12 +79,15 @@ function CreerFormulaire() {
         changeHandler(e);
         e.preventDefault();
         form.name=changeHandler(e)[0].nom;
+        //console.log("ttt")
+        //console.log(changeHandler(e)[0].ladate)
+        form.date_envoi=changeHandler(e)[0].ladate;
         for(let i=0;i<inputFields.length;i++)
         {
             form.questions.push(inputFields[i].question)
             form.reponses.push("")
         }
-        
+        window.location.pathname = "forms/"
         console.log('&&&')
         console.log(form);
         console.log('$$$')
@@ -89,11 +101,11 @@ function CreerFormulaire() {
         .catch(error => {
             console.log(error)
         })
-        window.location.pathname = "forms/"
+        
     }
 
     const handleAddFields = () => {
-        setInputField([...inputFields,{nom:'',question:'',reponse:''}])
+        setInputField([...inputFields,{nom:'',ladate:'' , question:'',reponse:''}])
     }
 
     const handleRemoveFields = (index) => {
@@ -116,7 +128,7 @@ function CreerFormulaire() {
             
             <Container >
                 <h2>
-                    Nouveau formulaire
+                    <u>Nouveau formulaire</u>
                 </h2>
                 <br></br>
                 <div>
@@ -124,6 +136,12 @@ function CreerFormulaire() {
                 onChange={changeHandler}/>
                 </div>
                 <br></br>
+                <div>
+                <input   type="date" name="ladate" id="start" 
+                 value={ moment(inputFields.ladate).format("YYYY-MMM-DD") } 
+                 className="form-control"
+                 onChange={changeDateHandler} />
+                </div>
                 <br></br>
                 <form className={classes.root} onSubmit={handleSubmit}>
                     {
@@ -165,7 +183,7 @@ function CreerFormulaire() {
                     <Button className={classes.button} style={{color:"white",backgroundColor:"#6c6f75"}}
                     variant="contained"
                     type="cancel"
-                    onClick={()=> {}}>
+                    onClick={()=> {window.location.pathname = "dashboard/2"}}>
                     Annuler</Button>
 
                 </form>
