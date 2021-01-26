@@ -79,13 +79,13 @@ class  PasserForm extends Component {
     handleSubmit = (e) => {
       var res = window.location.pathname.split("/");
       var key = res[2];
-      window.location.pathname = res[1]
-      axios.get('detailsForm/'+key).then(response =>{
-          this.setState({ form: response.data})
       window.location.pathname = "resultform/"+res[2]
+      /*axios.get('detailsForm/'+key).then(response =>{
+          this.setState({ form: response.data})
+      
       console.log("aq "+window.location.pathname)
       
-    })
+    })*/
   }
 
         render (){
@@ -96,68 +96,102 @@ class  PasserForm extends Component {
           var liste=this.state.form.questions;
           //console.log(form.questions[0])
           this.state.form.questions = liste;
-          return (
+          if(this.state.form.questions.length !== 0)
+          {
+            return (
             
+              <div>  
+                <div>       
+                      <div>
+                         <Navbar/> 
+                      </div>
+                      <div>
+                         <MenuCollab></MenuCollab>
+                         <div className="form">
+                         <div className="">
+                         <div className="inner2">
+                        <Container >
+                          <h3>Répondre au formulaire {this.state.form.name}</h3>
+                          {
+                            this.state.form.reponses.map( (x,index) => (
+                              <div>
+                                <br></br>
+                            <h6 className="left-side">Q{index+1}: {this.state.form.questions[index]}</h6>
+                            
+                            <TextField key={index} className="form-control"
+                            label={x}
+                            name="this.state.form.reponses[index]"
+                            //value={this.state.form.questions[index]}
+                            
+                            onChange={event => {
+                              x=event.target.value
+                              this.state.form.reponses[index]=x
+                              
+                              this.updatehandler(this.state.form);
+                              
+                            }
+                            }
+                            />
+                            </div>
+                            
+                            ))
+                            
+                            
+                          }
+                          <br></br>
+                          <br></br>
+                          <Button  style={{color:"white", backgroundColor:"#17a2b8"}}
+                          variant="contained"
+                          type="submit"
+                          onClick={this.handleSubmit}
+                          >
+                          Enregistrer</Button>
+                          <Button  style={{color:"white",backgroundColor:"#6c6f75"}}
+                          variant="contained"
+                          type="cancel"
+                          //onClick={this.deletehandler()}
+                          onClick={()=> {window.location.pathname = "forms"}}
+                          >
+                          Annuler</Button>
+              
+                        </Container>
+                  </div> 
+                  </div> 
+                  </div> 
+                  </div>
+                  </div>  
+                  </div> 
+            );
+            
+          }
+         else
+         {
+           return(
             <div>  
-              <div>       
-                    <div>
-                       <Navbar/> 
-                    </div>
-                    <div>
-                       <MenuCollab></MenuCollab>
-                       <div className="form">
-                       <div className="">
-                       <div className="inner2">
-                      <Container >
-                        <h3>Répondre au formulaire {this.state.form.name}</h3>
-                        {
-                          this.state.form.reponses.map( (x,index) => (
-                            <div>
-                          <h6 className="left-side"> {this.state.form.questions[index]}</h6>
-                          <TextField key={index} className="form-control"
-                          label={x}
-                          name="this.state.form.reponses[index]"
-                          //value={this.state.form.questions[index]}
-                          
-                          onChange={event => {
-                            x=event.target.value
-                            this.state.form.reponses[index]=x
-                            
-                            this.updatehandler(this.state.form);
-                            
-                          }
-                          }
-                          />
-                          </div>
-                          
-                          ))
-                          
-                          
-                        }
-                        <br></br>
-                        <br></br>
-                        <Button  style={{color:"white", backgroundColor:"#17a2b8"}}
-                        variant="contained"
-                        type="submit"
-                        onClick={this.handleSubmit}
-                        >
-                        Enregistrer</Button>
-                        <Button  style={{color:"white",backgroundColor:"#6c6f75"}}
-                        variant="contained"
-                        type="cancel"
-                        //onClick={this.deletehandler()}
-                        onClick={()=> {window.location.pathname = "forms"}}
-                        >
-                        Annuler</Button>
-            
-                      </Container>
-                </div> 
-                </div> 
-                </div> 
-                </div>
-                </div>  
-                </div> 
-          );
+            <div>       
+                  <div>
+                     <Navbar/> 
+                  </div>
+                  <div>
+                     <MenuCollab></MenuCollab>
+                     <br></br>
+                     <br></br>
+                     <br></br>
+                     <div className="form">
+                     <div className="">
+                     <div className="inner2">
+                       <h2>Pas d'évaluation pour le moment!</h2>
+                       </div>
+                       </div>
+  
+                       </div>
+                       </div>
+                       </div>
+                       </div>
+           )
+          
+
+         } 
         
             
 }

@@ -39,22 +39,25 @@ export const ToastDemo = ({ content }) => {
         console.log("eeee")
         console.log(this.state.email)
         console.log("aaaa")
-        axios.get('http://localhost:8080/trouverUserParLogin?email='+this.state.email+'&password='+this.state.password)
+        axios.get('http://localhost:8080/trouverChefParLogin?email='+this.state.email+'&password='+this.state.password)
         .then(response => {
             console.log(response.data[0].username)
-            if(response.data.length === 1 && this.state.email === "fatima@gmail.com" && this.state.password === "aaaaaa" && response.data[0].email === this.state.email && response.data[0].password === this.state.password )
+            if(response.data.length === 1 && this.state.email === "said@gmail.com" && this.state.password === "aaaaaa" && response.data[0].email === this.state.email && response.data[0].password === this.state.password )
             {
-                /*toast('Created successfully!', {
-                    status: 'Thanks!',
-                    type: 'success',
-                    autoHide: false,
-                    delay: '7000'
-                  })
-                  <div><ToastContainer /></div>*/
                   
-                window.location.pathname = "/dashboard/"+response.data[0].username
+                window.location.pathname = "/dashboard/said"
             }
-            else window.location.pathname = "/dashboardcollab/"+response.data[0].username
+
+            
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        axios.get('http://localhost:8080/trouverUserParLogin?email='+this.state.email+'&password='+this.state.password)
+        .then(response => {
+            
+            console.log(response.data[0].username)
+             window.location.pathname = "/dashboardcollab/"+response.data[0].username
 
             
         })

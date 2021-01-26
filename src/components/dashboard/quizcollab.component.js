@@ -49,7 +49,6 @@ updatehandler = (quiz)=> {
 }
 
 findUserByUsername = (username)=> {
-  //window.location.pathname = window.location.pathname+"form"
   var res = window.location.pathname.split("/");
   var key = res[2];
   axios.get('trouverUserByUsername?un='+username).then(response =>{
@@ -57,7 +56,7 @@ findUserByUsername = (username)=> {
     let messgtosend = {
       sendTo : '',
       subject : 'H R T - cnss',
-      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un questionnaire d évaluation à remplir et à rendre dans un délais d une semaine.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
+      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un questionnaire d évaluation à remplir et à rendre dans le délais.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
     }
     messgtosend.sendTo = response.data[0].email
     axios.post('v1/notification/textemail', messgtosend)
@@ -144,8 +143,6 @@ handleChange = (event) => {
 
              <CardActions className="right-side">
         <Button style={{ backgroundColor:"#17a2b8"}} size="small" onClick={this.handleSubmit}
-        //onClick={()=> {window.location.pathname = "edit/"+form.id;
-                                //}}
                                 >Enregistrer</Button>
         <br/>
       </CardActions>

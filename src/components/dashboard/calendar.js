@@ -34,11 +34,11 @@ class EventCalendar extends Component{
         const { quizs } = this.state.quizs
         for(let i=0;i<this.state.forms.length;i++)
         {
-            tab.push({title:"Form "+this.state.forms[i].name+", "+this.state.forms[i].user.username , date: this.state.forms[i].date_envoi})
+            tab.push({title:this.state.forms[i].name+', '+this.state.forms[i].user.username , date: this.state.forms[i].date_envoi})
         }
          for(let i=0;i<this.state.quizs.length;i++)
         {
-            tab.push({title:"Quiz "+this.state.quizs[i].name+", "+this.state.quizs[i].user.username , date: this.state.quizs[i].date_envoi})
+            tab.push({title:this.state.quizs[i].name+", "+this.state.quizs[i].user.username , date: this.state.quizs[i].date_envoi})
         }
         var menuu='';
         if(ch[2]=="dashboardcollab")

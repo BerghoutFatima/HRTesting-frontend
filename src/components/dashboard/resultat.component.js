@@ -55,7 +55,7 @@ import DoneIcon from '@material-ui/icons/Done';
                 <br></br>
                 <br></br>
                 <h6>Vos réponses sont envoyées au divisionnaire</h6>
-                <h6>Votre note est : {this.state.quiz.note} /20</h6>
+                <h6>Votre note est : {this.state.quiz.note} /10</h6>
                 <img src="/done.png" className="logoDone" />
             </div>
             </div>

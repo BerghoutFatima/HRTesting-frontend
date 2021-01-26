@@ -27,7 +27,7 @@ export const  MenuData = [
         icon:<DescriptionOutlinedIcon/>
     },
     {
-        title:"Gérer les rapports",
+        title:"Gérer les rapports ",
         link:"/choices",
         icon:<SettingsOutlinedIcon/>
     }

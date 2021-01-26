@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 
 const useStyles = makeStyles({
+  
     root: {
       minWidth: 275,
     },
@@ -30,7 +31,6 @@ const useStyles = makeStyles({
   });
 
 class  Reports extends Component {
-
     constructor(){
         super();
         this.state = { 
@@ -54,6 +54,35 @@ class  Reports extends Component {
      
     }; 
      
+    
+    
+    onAcces = (user)=> {
+     // axios.get('trouverUserByUsername?un='+username).then(response =>{
+       console.log(user)
+      for(let i=0; i<this.state.reports.length; i++){
+        if(this.state.reports[i].username == user.username){
+           this.state.reports[i].access = 1;
+           axios.put('/updateReport/'+this.state.reports[i].id,this.state.reports[i]).then(response =>{
+    
+            console.log("Report is ")
+            console.log(this.state.reports[i])
+          })
+        }
+
+      }
+        let messgtosend = {
+          sendTo : '',
+          subject : 'H R T - cnss',
+          body : 'Bonjour '+user.username+', \non vous informe que votre chef de division vous donne l\'accès aux résultats d\'évaluation. \n\nBonne journée.'
+        }
+        //messgtosend.sendTo = response.data[0].email
+        messgtosend.sendTo = user.email
+        axios.post('v1/notification/textemail', messgtosend).then(resp=>(console.log("OK!")))
+        
+        
+      //})
+    }
+
     // On file upload (click the upload button) 
     onFileUpload = (r) => { 
      
@@ -133,18 +162,29 @@ class  Reports extends Component {
       </CardContent>
       
       <CardActions className="right-side">
-      
-        <Button style={{ backgroundColor:"#17a2b8"}} size="small" onClick={() => this.onFileUpload(user.username)}>Charger</Button>
+        <div>
+        <Button  style={{color:"white", backgroundColor:"#6c6f75"}}
+                    onClick={() => this.onAcces(user)}>
+                    Donner l'accès
+                    </Button>
+        </div>
+        
+                    <Button  style={{color:"white",backgroundColor:"#17a2b8"}}
+                    onClick={() => this.onFileUpload(user.username)}>
+                    Charger
+                    </Button>
         <br/>
+
+        
       </CardActions>
     </Card>
+    
     
                                  ))
                              }
                    </div>
                    
                 </div>
-                
             </div>
                                         
             ); 

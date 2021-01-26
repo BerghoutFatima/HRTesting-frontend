@@ -182,10 +182,6 @@ function CreerQuestionnaire(){
     const handleSubmit = (e) => {
         
         e.preventDefault();
-        //changeHandler(e)[0].compo.question = changeHandler(e)[0].question;
-        //console.log("----")
-        //console.log(changeHandler(e)[0])
-        //console.log("____")
         quiz.name=changeHandler(e)[0].nom;
         quiz.date_envoi=changeHandler(e)[0].ladate;
 
@@ -198,8 +194,6 @@ function CreerQuestionnaire(){
             for(let i=0;i<changeHandler(e).length;i++)
         {
             changeHandler(e)[i].compo.question = changeHandler(e)[i].question;
-            //qst.push(changeHandler(e)[i].question)
-            //choix.push(changeHandler(e)[i].choice)
             maquestion.question = changeHandler(e)[i].compo.question;
             quiz.id = response.data.id;
             maquestion.quiz = quiz;
@@ -208,12 +202,8 @@ function CreerQuestionnaire(){
             axios
             .post('addQuestion', maquestion)
             .then(resp => {
-                console.log(".......")
-                console.log(resp)
-                //
+                
                 for(let k=0;k<changeHandler(e)[i].compo.choices.length;k++){
-                    console.log("ffffffffff")
-                 //console.log(monchoix.opt = changeHandler(e)[i].compo.choices[k]);
                  monchoix.option = changeHandler(e)[i].compo.choices[k].option;
                  monchoix.rep = changeHandler(e)[i].compo.choices[k].rep;
                  monchoix.laNote = changeHandler(e)[i].compo.choices[k].laNote
@@ -221,9 +211,6 @@ function CreerQuestionnaire(){
                  monchoix.maquestion = maquestion;
                  
                  if(monchoix.option != ''){
-                    //console.log("::::")
-                    //console.log(monchoix.option)
-                    //console.log(monchoix)
                     axios
                     .post('addChoice', monchoix)
                     .then(response => {
@@ -233,6 +220,7 @@ function CreerQuestionnaire(){
                     .catch(error => {
                       console.log(error)
                     })
+                    window.location.pathname = "quizs/"
 
                  }
                 }
@@ -240,56 +228,16 @@ function CreerQuestionnaire(){
         .catch(error => {
             console.log(error)
         })
-           
-            /*axios
-               .post('addQuestion', changeHandler(e)[i].compo)
-               .then(response => {
-                console.log(".......")
-                console.log(response)
-               }) 
-               .catch(error => {
-                console.log(error)
-               })*/
-            //quiz.questions[i].choices = changeHandler(e)[i].choice;
-            //push("{"+changeHandler(e)[i].question+","+changeHandler(e)[i].choice+"}")
-            //quiz.choices.push("")
 
         }
+        
         }) 
         .catch(error => {
             
             console.log(error)
         })
 
-       
         
-        //window.location.pathname = "quizs"
-        //console.log('&&&')
-        //console.log(quiz);
-        //console.log(qst)
-        //console.log(choix)
-        //console.log('$$$')
-        
-
-        /*axios
-        .post('addQuestion', maquestion)
-        .then(response => {
-            console.log(".......")
-            console.log(response)
-        }) 
-        .catch(error => {
-            console.log(error)
-        })
-
-        axios
-        .post('addQuiz', quiz)
-        .then(response => {
-            console.log(".......")
-            console.log(response)
-        }) 
-        .catch(error => {
-            console.log(error)
-        })*/
     }
 
     

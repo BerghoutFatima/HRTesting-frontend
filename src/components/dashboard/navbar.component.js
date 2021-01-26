@@ -5,6 +5,7 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-notifications/lib/notifications.css';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
  class Navbar extends Component {
   constructor(props){
@@ -37,8 +38,8 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
       <ul className="navbar-nav mr-auto">
       
       <li className="nav-item dropdown">
-      <Avatar style={{marginLeft:40}} className="bg-dark"  icon="user"><PermIdentityIcon/></Avatar>
-        
+      <Avatar style={{marginLeft:40}} className="bg-dark" type="button" onClick={() => {window.location.pathname = "/sign-in"}} ><PowerSettingsNewIcon/></Avatar>
+      
       </li>
 
 

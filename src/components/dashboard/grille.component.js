@@ -226,6 +226,7 @@ class Grille extends Component {
 <Button style={{ backgroundColor:"#17a2b8"}} className="right-side" onClick={() => {axios.post('/addGrille',this.state.grille).then((response) => {
             
             console.log(response)
+            window.location.pathname = "/grilles"
         })}}>Enregistrer</Button>
 <br></br>
 

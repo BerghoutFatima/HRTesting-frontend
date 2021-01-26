@@ -22,10 +22,20 @@ import Formcollab from "./components/dashboard/formcollab.component";
 import Quizcollab from "./components/dashboard/quizcollab.component";
 import EventCalendar from "./components/dashboard/calendar";
 import Grille from "./components/dashboard/grille.component";
+import GrilleCollab from "./components/dashboard/grilleCollab";
 import Grilles from "./components/dashboard/grilles.component";
 import Editgrille from "./components/dashboard/editgrille.component";
 import Resultat from "./components/dashboard/resultat.component";
 import ResultForm from "./components/dashboard/resultForm.component";
+import ListQuizRendus from "./components/dashboard/listquizrendus";
+import ListFormsRendus from "./components/dashboard/listformsrendus";
+import DetailsQuizRendu from "./components/dashboard/detailsQuizRendu";
+import DetailsQuizCollab from "./components/dashboard/detailsQuizCollab";
+import DetailsFormRendu from "./components/dashboard/detailsFormRendu";
+import DetailsFormCollab from "./components/dashboard/detailsFormCollab";
+import Administrateur from "./components/dashboard/admin";
+import Modal from "./components/dashboard/modal";
+
 
 function App() {
   return (<Router>
@@ -50,13 +60,22 @@ function App() {
             <Route path="/passerquiz" component={PasserQuiz} />
             <Route path="/calendar" component={EventCalendar} />
             <Route path="/grille" component={Grille} />
+            <Route path="/grillecollab" component={GrilleCollab} />
             <Route path="/reports" component={Reports} />
             <Route path="/grilles" component={Grilles} />
             <Route path="/editgrille" component={Editgrille} />
             <Route path="/resultat" component={Resultat} />
             <Route path="/resultForm" component={ResultForm} />
+            <Route path="/listquizrendus" component={ListQuizRendus} />
+            <Route path="/listformsrendus" component={ListFormsRendus} />
+            <Route path="/detailsquiz" component={DetailsQuizRendu} />
+            <Route path="/detailsquizcollab" component={DetailsQuizCollab} />
+            <Route path="/detailsform" component={DetailsFormRendu} />
+            <Route path="/detailsformcollab" component={DetailsFormCollab} />
             <Route path="/newform" component={CreerFormulaire} />
             <Route path="/questionnaire" component={CreerQuestionnaire} />
+            <Route path="/admin" component={Administrateur} />
+            <Route path="/modal" component={Modal} />
           </Switch>
         </div>
       

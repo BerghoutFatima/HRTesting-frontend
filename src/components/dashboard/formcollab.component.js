@@ -64,7 +64,7 @@ findUserByUsername = (username)=> {
     let messgtosend = {
       sendTo : '',
       subject : 'H R T - cnss',
-      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un formulaire d évaluation à remplir et à rendre dans un délais d une semaine.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
+      body : 'Bonjour '+username+', \non vous informe que votre chef de division vient de vous attribuer un formulaire d évaluation à remplir et à rendre avant le délais.\n\nNB: Vous allez le retrouver dans votre espace collaborateur. \n\nBonne journée.'
     }
     console.log("aze ")
     messgtosend.sendTo = response.data[0].email
